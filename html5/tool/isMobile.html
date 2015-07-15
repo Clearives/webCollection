@@ -29,7 +29,7 @@
         system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
         system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false; 
         if (system.win || system.mac || system.xll||system.ipad) { 
-        	 alert('pc'+str.length);
+        	 console.log('pc'+str.length);
  			document.getElementById('test').innerHTML = str; 
         } else { 
              alert('mobile'+str.replace(/\s/g,"  ").length);
