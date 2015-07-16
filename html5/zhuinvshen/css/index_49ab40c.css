@@ -1,0 +1,446 @@
+html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu {
+	margin: 0;
+	padding: 0;
+}
+
+html,body,fieldset,img,iframe,abbr {
+	border: 0;
+}
+
+li {
+	list-style: none;
+}
+
+textarea {
+	overflow: auto;
+	resize: none;
+}
+
+a,button {
+	cursor: pointer;
+}
+
+h1,h2,h3,h4,h5,h6,em,strong,b {
+	font-weight: 700;
+}
+
+a,a:hover {
+	text-decoration: none;
+}
+
+body {
+	font-family: "Microsoft YaHei","Helvetica Neue",Helvetica,STHeiTi,sans-serif;
+}
+
+img,a.btn {
+	touch-action: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+img,a.btn,input {
+	display: block;
+}
+
+.wrapper {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.page-bg {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.page-bg div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+	background-size: 100% auto!important;
+}
+
+.page-bg .home-bg {
+	background: url(../images/bg-home.jpg) center center no-repeat;
+}
+
+.page-bg .game-bg {
+	background: url(../images/bg-game.jpg) center center no-repeat;
+}
+
+.page-bg .guess-bg {
+	background: url(../images/bg-guess.jpg) center center no-repeat;
+}
+
+.page-bg .success-bg {
+	background: url(../images/bg-success.jpg) center center no-repeat;
+}
+
+.page-bg .failed-bg {
+	background: url(../images/bg-failed.jpg) center center no-repeat;
+}
+
+.page-fg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -568px;
+	margin-left: -360px;
+	width: 720px;
+	height: 1136px;
+}
+
+.page-fg .page {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+}
+
+.page-fg .btn,.page-fg div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.page-fg .home-page {
+	background: url(../images/home-page.png);
+}
+
+.page-fg .home-page .main-btn {
+	margin-top: 244px;
+	margin-left: -190px;
+	width: 380px;
+	height: 110px;
+}
+
+.page-fg .game-page {
+	background: url(../images/game-page.png);
+}
+
+.page-fg .game-page .foot-btn {
+	margin-top: 260px;
+	margin-left: -250px;
+	width: 205px;
+	height: 204px;
+	opacity: .5;
+}
+
+.page-fg .game-page .left-foot {
+	margin-left: -230px;
+	background: url(../images/foot.png) left top no-repeat;
+	-webkit-animation: bling .2s linear infinite;
+}
+
+.page-fg .game-page .right-foot {
+	margin-left: 25px;
+	background: url(../images/foot.png) right top no-repeat;
+	-webkit-animation: bling .2s .1s linear infinite;
+}
+
+@-webkit-keyframes bling {
+	0% {
+		opacity: .5;
+	}
+
+	50% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: .5;
+	}
+}
+
+.page-fg .game-page .clock {
+	margin-top: -270px;
+	margin-left: -180px;
+	width: 212px;
+	height: 211px;
+	background: url(../images/clock.png) no-repeat;
+}
+
+.page-fg .game-page .hand-self {
+	margin-top: -284px;
+	margin-left: -194px;
+	width: 240px;
+	height: 240px;
+	background: url(../images/hand-tip.png) no-repeat;
+}
+
+.page-fg .game-page .hand-target {
+	margin-top: -284px;
+	margin-left: -194px;
+	width: 240px;
+	height: 240px;
+	background: url(../images/hand.png) no-repeat;
+}
+
+.page-fg .game-page .tip {
+	margin-top: -220px;
+	margin-left: 60px;
+	width: 179px;
+	height: 107px;
+	background: url(../images/distance-tip.png) no-repeat;
+}
+
+.page-fg .game-page .distance {
+	margin-top: -172px;
+	margin-left: 49px;
+	width: 120px;
+	height: 70px;
+	color: #ffd800;
+	text-align: center;
+	font-weight: 700;
+	font-size: 64px;
+	line-height: 70px;
+}
+
+.page-fg .game-page .person {
+	margin-top: 40px;
+	margin-left: -44px;
+	width: 109px;
+	height: 245px;
+	background: url(../images/person.png) left top no-repeat;
+}
+
+.page-fg .game-page .dirt {
+	margin-top: 50px;
+	margin-left: -400px;
+	width: 202px;
+	height: 159px;
+	background: url(../images/dirt.png) no-repeat;
+	-webkit-transform: scale(0.1,.1);
+	-webkit-transform-origin: 200% 140%;
+}
+
+.page-fg .game-page .dirt1.active {
+	-webkit-animation: bubble 1s linear infinite;
+}
+
+.page-fg .game-page .dirt2.active {
+	-webkit-animation: bubble 1s .5s linear infinite;
+}
+
+@-webkit-keyframes bubble {
+	from {
+		-webkit-transform: scale(0.1,.1);
+	}
+
+	to {
+		-webkit-transform: scale(1,1);
+	}
+}
+
+.page-fg .guess-page {
+	background: url(../images/guess-page.png);
+}
+
+.page-fg .guess-page .btn {
+	width: 250px;
+	height: 100px;
+}
+
+.page-fg .guess-page .ab-btn {
+	margin-top: 241px;
+	margin-left: -257px;
+}
+
+.page-fg .guess-page .bingbing-btn {
+	margin-top: 241px;
+	margin-left: 6px;
+}
+
+.page-fg .guess-page .yuanyuan-btn {
+	margin-top: 353px;
+	margin-left: -257px;
+}
+
+.page-fg .guess-page .tangwei-btn {
+	margin-top: 353px;
+	margin-left: 6px;
+}
+
+.page-fg .success-page {
+	background: url(../images/success-page.png);
+}
+
+.page-fg .success-page .btn {
+	width: 250px;
+	height: 60px;
+}
+
+.page-fg .success-page .tip {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -320px;
+	width: 640px;
+	color: #fff;
+	text-align: center;
+}
+
+.page-fg .success-page .tip1 {
+	margin-top: 220px;
+	height: 30px;
+	font-size: 24px;
+	line-height: 30px;
+}
+
+.page-fg .success-page .tip2 {
+	margin-top: 255px;
+	height: 40px;
+	letter-spacing: 3px;
+	font-size: 36px;
+	line-height: 40px;
+}
+
+.page-fg .success-page .info-btn {
+	margin-top: 325px;
+	margin-left: -257px;
+}
+
+.page-fg .success-page .home-btn {
+	margin-top: 325px;
+	margin-left: 6px;
+}
+
+.page-fg .success-page .again-btn {
+	margin-top: 405px;
+	margin-left: -257px;
+}
+
+.page-fg .success-page .share-btn {
+	margin-top: 405px;
+	margin-left: 6px;
+}
+
+.page-fg .failed-page {
+	background: url(../images/failed-page.png);
+}
+
+.page-fg .failed-page .btn {
+	width: 250px;
+	height: 60px;
+}
+
+.page-fg .failed-page .tip {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -320px;
+	width: 640px;
+	height: 35px;
+	color: #fff;
+	text-align: center;
+	font-size: 30px;
+	line-height: 35px;
+}
+
+.page-fg .failed-page .tip strong {
+	color: #fcf103;
+	font-weight: 700;
+}
+
+.page-fg .failed-page .tip1 {
+	margin-top: 220px;
+}
+
+.page-fg .failed-page .tip2 {
+	margin-top: 260px;
+	font-weight: 700;
+}
+
+.page-fg .failed-page .home-btn {
+	margin-top: 325px;
+	margin-left: -126px;
+}
+
+.page-fg .failed-page .again-btn {
+	margin-top: 405px;
+	margin-left: -257px;
+}
+
+.page-fg .failed-page .share-btn {
+	margin-top: 405px;
+	margin-left: 6px;
+}
+
+.s-home .home-bg,.s-home .home-page,.s-game .game-bg,.s-game .game-page,.s-guess .guess-bg,.s-guess .guess-page,.s-success .success-bg,.s-success .success-page,.s-failed .failed-bg,.s-failed .failed-page {
+	display: block;
+}
+
+.page-pop {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 99999;
+	display: none;
+	margin-top: -1000px;
+	margin-left: -1000px;
+	width: 2000px;
+	height: 2000px;
+	background: rgba(0,0,0,.8);
+}
+
+.page-pop .pop {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: none;
+	margin-top: -568px;
+	margin-left: -360px;
+	width: 720px;
+	height: 1136px;
+}
+
+.page-pop .btn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+.page-pop .info-pop {
+	background: url(../images/info-pop.png);
+}
+
+.page-pop .info-pop .watch-link {
+	margin-top: -167px;
+	margin-left: 73px;
+	width: 180px;
+	height: 70px;
+}
+
+.page-pop .info-pop .home-btn {
+	margin-top: 241px;
+	margin-left: -257px;
+	width: 250px;
+	height: 100px;
+}
+
+.page-pop .info-pop .back-btn {
+	margin-top: 241px;
+	margin-left: 6px;
+	width: 250px;
+	height: 100px;
+}
+
+.page-pop .share-pop {
+	background: url(../images/share-pop.png);
+}
+
+.s-info .info-pop,.s-share .share-pop {
+	display: block;
+}
