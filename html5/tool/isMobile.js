@@ -1,3 +1,6 @@
+/*
+* 判断是否为手机
+*/
 function isMobile() {
     var sUserAgent= navigator.userAgent.toLowerCase(),
         bIsIpad= sUserAgent.match(/ipad/i) == "ipad",
