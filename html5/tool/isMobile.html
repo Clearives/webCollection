@@ -29,10 +29,8 @@
         system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
         system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false; 
         if (system.win || system.mac || system.xll||system.ipad) { 
-        	 console.log('pc'+str.length);
- 			document.getElementById('test').innerHTML = str; 
+ 			document.getElementById('test').innerHTML = str;
         } else { 
-             alert('mobile'+str.replace(/\s/g,"  ").length);
             document.getElementById('test').innerHTML = str.replace(/\s/g,"  ");
         } 
 </script>
