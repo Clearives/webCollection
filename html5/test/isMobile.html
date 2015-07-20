@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>isMobile</title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div{font-size: 20px;}
+	</style>
+</head>
+<body>
+
+	<div id="test" style="white-space: pre-wrap"></div>
+	<div  style="white-space: pre-wrap">javascript我也是手机，哈哈哈。</div>
+	<script type="text/javascript">	
+	var str= '    javascript我是手机,哈哈哈。。'
+	console.log(str.replace(/\s/g,"  "));
+		//平台、设备和操作系统 
+        var system = { 
+            win: false, 
+            mac: false, 
+            xll: false, 
+            ipad:false 
+        }; 
+        //检测平台 
+        var p = navigator.platform; 
+        system.win = p.indexOf("Win") == 0; 
+        system.mac = p.indexOf("Mac") == 0; 
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
+        system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false; 
+        if (system.win || system.mac || system.xll||system.ipad) { 
+ 			document.getElementById('test').innerHTML = str;
+        } else { 
+            document.getElementById('test').innerHTML = str.replace(/\s/g,"  ");
+        } 
+</script>
+</body>
+</html>
