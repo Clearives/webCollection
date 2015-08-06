@@ -1,7 +1,7 @@
 .text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
   text-shadow: @string;
 }
-.box-shadow (@string) {
+.box-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
   -webkit-box-shadow: @string;
   -moz-box-shadow:    @string;
   box-shadow:         @string;
@@ -76,10 +76,10 @@
   background-image: -o-linear-gradient(left, @startColor, @endColor);
 }
 
-.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
-  -webkit-animation: @name @duration @delay @ease;
-  -moz-animation:    @name @duration @delay @ease;
-  -ms-animation:     @name @duration @delay @ease;
+.animation (@animation) {
+  -webkit-animation: @animation;
+  -moz-animation:    @animation;
+  -ms-animation:     @animation;
 }
 
 .transition (@transition) {
