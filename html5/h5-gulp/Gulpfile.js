@@ -2,6 +2,7 @@
  * Created by Clearives on 2015/8/5.
  */
 var gulp = require('gulp'),
+    htmlmin = require('gulp-htmlmin'),
     minifyCss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
@@ -17,14 +18,14 @@ var gulp = require('gulp'),
     path = require('path');
 
 // 环境信息
-var source = 'source',
+var source = 'source/wechat_qixi',
     develop = 'build/develop',
     production = 'build/production';
 
 var src = {
     tpl: '/tpl/**',
     css: '/css/*.css',
-    js: '/js/**/*.js',
+    js: '/js/*.js',
     html: '/**.html',
     img: '/images/**'
 }
@@ -35,16 +36,24 @@ gulp.task('help',function () {
     console.log('	gulp help			gulp参数说明');
 });
 
+//html
 
+gulp.task('html', function() {
+    return gulp.src(source+src.html)
+        //.pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest(develop))
+        .pipe(gulp.dest(production));
+});
 
 // css压缩
+
 gulp.task('minify-css', function() {
     return gulp.src(source+src.css)
         .pipe(minifyCss({compatibility: 'ie8'}))
         .pipe(gulp.dest(develop+'/css'))
         .pipe(concat('main.css'))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(develop+'/css'))
+        .pipe(gulp.dest(production+'/publish/css'))
 });
 // 图片压缩
 gulp.task('images', function() {
@@ -55,23 +64,29 @@ gulp.task('images', function() {
             use: [pngquant()]
         }))
         .pipe(gulp.dest(develop+'/images'))
+        .pipe(gulp.dest(production+'/publish/images'))
 });
 
 // js处理
-gulp.task('scripts', function() {
-    return gulp.src(source+src.js)
+
+gulp.task('jshint', function() {
+    gulp.src(source+src.js)
         .pipe(jshint())
-        .pipe(jshint.reporter('default'))
-        //.pipe(gulp.dest(develop+'/js'))
-        //.pipe(concat('main.js'))
-        //.pipe(rename({suffix: '.min'}))
+        .pipe(jshint.reporter('default'));
+});
+
+gulp.task('scripts', ['jshint'], function() {
+    return gulp.src([source+'/js/lib/zepto.min.js',source+'/js/lib/zepto.fullpage.js',source+src.js])
+        .pipe(gulp.dest(develop+'/js'))
+        .pipe(concat('main.js'))
+        .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest(develop+'/js'));
+        .pipe(gulp.dest(production+'/publish/js'));
 });
 
 // clean
 gulp.task('clean', function() {
-    return gulp.src([develop+'/*'], {read: false})
+    return gulp.src([production+'/publish/*'], {read: false})
         .pipe(clean());
 });
 
@@ -81,9 +96,7 @@ gulp.task('default',function () {
 });
 // build
 gulp.task('build',['clean'], function() {
-    gulp.src(source+src.html)
-        .pipe(gulp.dest(develop));
-    gulp.start('minify-css','scripts', 'images');
+    gulp.start('html','minify-css','scripts', 'images');
 });
 
 // watch
