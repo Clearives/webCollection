@@ -76,7 +76,7 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('scripts', ['jshint'], function() {
-    return gulp.src([source+'/js/lib/zepto.min.js',source+'/js/lib/zepto.fullpage.js',source+src.js])
+    return gulp.src([source+src.js])
         .pipe(gulp.dest(develop+'/js'))
         .pipe(concat('main.js'))
         .pipe(rename({suffix: '.min'}))
