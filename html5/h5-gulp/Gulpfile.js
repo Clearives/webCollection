@@ -2,6 +2,7 @@
  * Created by Clearives on 2015/8/5.
  */
 var gulp = require('gulp'),
+    connect = require('gulp-connect'),
     htmlmin = require('gulp-htmlmin'),
     minifyCss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
@@ -18,7 +19,7 @@ var gulp = require('gulp'),
     path = require('path');
 
 // 环境信息
-var source = 'source/wechat_qixi',
+var source = 'source/lmyk',
     develop = 'build/develop',
     production = 'build/production';
 
@@ -34,6 +35,17 @@ gulp.task('help',function () {
     console.log('	gulp build			文件打包');
     console.log('	gulp watch			文件监控打包');
     console.log('	gulp help			gulp参数说明');
+    console.log('	gulp s  			测试server');
+});
+
+//server
+
+gulp.task('s', function() {
+    connect.server({
+        livereload: true,
+        port: 8088,
+        host: 'clearives.dev'
+    });
 });
 
 //html
@@ -76,7 +88,7 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('scripts', ['jshint'], function() {
-    return gulp.src([source+src.js])
+    return gulp.src([source+'/js/lib/zepto.min.js',source+'/js/lib/zepto.fullpage.js',source+src.js])
         .pipe(gulp.dest(develop+'/js'))
         .pipe(concat('main.js'))
         .pipe(rename({suffix: '.min'}))
