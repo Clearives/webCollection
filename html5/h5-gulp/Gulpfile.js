@@ -10,6 +10,8 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     rename = require('gulp-rename'),
+    rev = require('gulp-rev'),
+    revCollector = require('gulp-rev-collector'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
@@ -36,6 +38,9 @@ gulp.task('help',function () {
     console.log('	gulp watch			文件监控打包');
     console.log('	gulp help			gulp参数说明');
     console.log('	gulp s  			测试server');
+    console.log('	gulp -p				生产环境（默认生产环境）');
+    console.log('	gulp -d				开发环境');
+    console.log('	gulp -m <module>		部分模块打包（默认全部打包）');
 });
 
 //server
@@ -65,7 +70,11 @@ gulp.task('minify-css', function() {
         .pipe(gulp.dest(develop+'/css'))
         .pipe(concat('main.css'))
         .pipe(rename({suffix: '.min'}))
+        .pipe(rev())
         .pipe(gulp.dest(production+'/publish/css'))
+        .pipe(rev.manifest())
+        .pipe(gulp.dest(production+'/publish/css'));
+
 });
 // 图片压缩
 gulp.task('images', function() {
@@ -93,7 +102,27 @@ gulp.task('scripts', ['jshint'], function() {
         .pipe(concat('main.js'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
+        .pipe(rev())
+        .pipe(gulp.dest(production+'/publish/js'))
+        .pipe(rev.manifest())
         .pipe(gulp.dest(production+'/publish/js'));
+});
+
+//rev
+
+gulp.task('rev', function () {
+    return gulp.src([production+'/publish/**/*.json', production+'/publish/*.html'])
+        .pipe( revCollector({
+            replaceReved: true,
+            dirReplacements: {
+                'css': '/publish/css',
+                '/js/': '/publish/js/',
+                'cdn/': function(manifest_value) {
+                    return '//cdn' + (Math.floor(Math.random() * 9) + 1) + '.' + 'exsample.dot' + '/img/' + manifest_value;
+                }
+            }
+        }) )
+        .pipe( gulp.dest(production));
 });
 
 // clean
