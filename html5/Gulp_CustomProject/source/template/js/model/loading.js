@@ -5,7 +5,7 @@ define(function(require, exports, module) {
     var CcAudio = require('./CcMusic');
 
     window.addEventListener('load', function () {
-        var bgm = new CcAudio(window.dev==0 ? 'images/music_bg.mp3' : 'publish/images/music_bg.mp3');
+        var bgm = new CcAudio('music_bg.mp3');
         bgm.loop=true;
         var e = ["bg-p1.png","bg-p2.png","bg-p3.jpg","bg-p4.jpg","icon.jpg","iphone.png","musicIcon.png"];
         var n=0;

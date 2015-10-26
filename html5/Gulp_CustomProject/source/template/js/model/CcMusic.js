@@ -14,7 +14,7 @@ define(function(require, exports, module) {
     //load
     CcAudio.prototype.loadMusic=function(){
         var _this=this;
-        _this.audio.src=this.aurl;
+        _this.audio.src=window.dev==0 ? 'images/'+this.aurl : 'publish/images/'+this.aurl;
         _this.audio.volume=0.5;
         if(!_this.audioCc){return;}
         _this.audioCc.style.display='block';
