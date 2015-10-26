@@ -2,6 +2,6 @@
 
 ##### gulp build			文件打包
 ##### gulp watch			文件监控打包
-##### gulp help			gulp参数说明
-
+##### gulp help			    gulp参数说明
+#### gulp seajscombo        模块化js合并
 
