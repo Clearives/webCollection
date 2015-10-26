@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head lang="en-us">
+    <meta charset="UTF-8">
+    <title>定制化分享</title>
+    <meta name="description" content="#">
+    <meta name="author" content="clearives">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/blood.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section data-markdown data-background-transition="zoom">
+                <script type="text/template">
+                    ## 定制化分享
+
+
+                </script>
+            </section>
+            <section data-markdown data-background="#b5533c" data-background-transition="zoom">
+                <script type="text/template">
+                    #### 定制化项目大体结构
+
+                    目前我们所做的定制化项目都是单页的。
+                    单页里面分为很多屏，里面涉及到滑动、点击、动画以及其它交互
+                    大体可以总结为下面几点：
+
+                </script>
+            </section>
+            <section>
+                <section id="fragments">
+                    <h4>涉及到的几点：</h4>
+                    <ul>
+                        <li class="fragment">单页</li>
+                        <li class="fragment">滑动/触发</li>
+                        <li class="fragment">动画</li>
+                        <li class="fragment">分享</li>
+                        <li class="fragment">Other</li>
+                    </ul>
+
+                </section>
+
+            </section>
+            <section data-markdown data-background="#4d7e65" data-background-transition="zoom">
+                <script type="text/template">
+                    ####  下面讲一下我平时开发用到的东西 ：
+
+                    - 模块化/seajs
+                    - Swiper.js
+                    - Css3,Less
+                    - Rem自适应
+                    - Wx分享
+                    - other(具体情况具体分析)
+                </script>
+            </section>
+            <section data-markdown data-background="#b5533c" data-background-transition="zoom">
+                <script type="text/template">
+                    #### 模块化
+                    ![模块化](img/model.png "模块化")
+
+                </script>
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    #### Swiper.js
+                    上面我们说过的单页，滑动，触发这些东西，我们可以自己去写，当然也可以用现成的插件，比如这里说的Swiper.js。
+                    ```
+                        swiper = new Swiper('.swiper-container', {
+                        pagination: '.swiper-pagination',
+                        animating: true,
+                        noSwiping : true,
+                        speed:1000,
+                        effect: 'slide',
+                        });
+                    ```
+                    我们这里看一个[demo](http://192.168.1.136:8008/source/pageResponse/),看看大概，具体可以去开API！
+                </script>
+            </section>
+            <section data-markdown data-background="#4d7e65" data-background-transition="zoom">
+                <script type="text/template">
+                    #### Css3,Less
+
+                    - 从之前的项目看，里面动画还是占很大比例的，所以Css3这里提一下
+                    - Css3动画我们可以参考[腾讯isux](http://isux.tencent.com/css3/index.html),里面有详细说明，也有动画编辑器
+                    - 这里项目没有使用css,而是使用less,这个其实没什么特别的，都一样，只是我觉得less方便一点，看个人习惯吧
+                </script>
+            </section>
+            <section>
+                   <h4>Rem自适应</h4>
+                    <pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+;(function (doc, win) {
+    var docEl = doc.documentElement,
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function () {
+    var clientWidth = (window.innerWidth <= 320)
+    ? 320 : ((window.innerWidth >= 640) ? 640 : window.innerWidth);
+    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+    };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+                    </code></pre>
+
+                <p style="text-align: left;padding-left: 45px;">因为我们的设计稿是2倍的图，所以我们html设置字体为50px，然后尺寸都按原始尺寸除以100换算成rem即可</p>
+                <p style="text-align: left;padding-left: 45px;">具体情况使用媒体查询</p>
+
+            </section>
+            <section data-markdown>
+                <script type="text/template">
+                    #### Wx分享
+
+                    这边是Yong写好的前端的接口，前端调用就行
+
+                    ![wx分享](img/wxshare.png "wx分享")
+                </script>
+            </section>
+            <section data-markdown data-background="#4d7e65" data-background-transition="zoom">
+                <script type="text/template">
+                    #### 其它
+
+                    - 不同的项目肯定有不一样的处理方式，我们要根据具体情况分析，需要用到什么技术自己去预研
+                    - 图片压缩（gulp/tinypng）
+
+                </script>
+            </section>
+
+            <section data-markdown >
+                <script type="text/template">
+                    <h3>The End</h3>
+
+                    <h4>Thanks</h4>
+                    <br/>
+                    <p style="text-align: right;margin-right: 100px;font-size: 24px; color: #f66">-By zengxianghui</p>
+                </script>
+            </section>
+
+        </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: 'plugin/zoom-js/zoom.js', async: true },
+                { src: 'plugin/notes/notes.js', async: true }
+            ]
+        });
+
+    </script>
+</body>
+</html>
