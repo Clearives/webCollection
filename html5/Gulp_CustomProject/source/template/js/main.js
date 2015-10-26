@@ -2,7 +2,9 @@ define(function(require, exports, module) {
     var $ = require('./jquery');
     var page = require('./model/page');
     require('./model/loading');
-
+    console.log = function () {
+        
+    }
     ;(function () {
         page.initPage(1);
 

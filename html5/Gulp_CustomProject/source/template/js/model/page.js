@@ -1,5 +1,4 @@
 define(function(require, exports, module) {
-    console.log(module.uri);
     var $ = require('../jquery');
     require('../swiper');
     var swiper;
@@ -8,7 +7,7 @@ define(function(require, exports, module) {
         switch (page) {
             case 1:
                 swiper = new Swiper('.swiper-container', {
-                    pagination: '.swiper-pagination',
+                    //pagination: '.swiper-pagination',
                     animating: true,
                     noSwiping : true,
                     speed:1000,

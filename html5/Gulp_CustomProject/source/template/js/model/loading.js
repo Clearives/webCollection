@@ -5,8 +5,9 @@ define(function(require, exports, module) {
     var CcAudio = require('./CcMusic');
 
     window.addEventListener('load', function () {
-        var bgm = new CcAudio('http://dgj.uliveapp.com/img/music_bg.mp3');
-        var e = ["bg-p1.png","bg-p2.png","bg-p3.jpg","bg-p4.jpg"];
+        var bgm = new CcAudio(window.dev==0 ? 'images/music_bg.mp3' : 'publish/images/music_bg.mp3');
+        bgm.loop=true;
+        var e = ["bg-p1.png","bg-p2.png","bg-p3.jpg","bg-p4.jpg","icon.jpg","iphone.png","musicIcon.png"];
         var n=0;
         var t=e.length;
         var T=document.getElementById('percentShow');
@@ -32,10 +33,10 @@ define(function(require, exports, module) {
                             myPer+=Math.floor(Math.random()*7+1);
                         }
                         T.innerHTML = '已加载: '+myPer+ '%';
-                    },10)
+                    },50)
                 }
             };
-            r.src = 'images/'+e;
+            r.src = window.dev==0 ? 'images/'+e : 'publish/images/'+e;
         }
         for (var i = 0; i < t; ++i) load(e[i]);
     })
