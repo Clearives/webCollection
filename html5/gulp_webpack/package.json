@@ -1,0 +1,32 @@
+{
+  "name": "gulp_webpack",
+  "version": "1.0.0",
+  "description": "A project use gulp && webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "webpack"
+  ],
+  "author": "clearives",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.23.0",
+    "file-loader": "^0.8.4",
+    "gulp": "^3.9.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssshrink": "^0.1.5",
+    "gulp-rev": "^6.0.1",
+    "gulp-rev-collector": "^1.0.2",
+    "gulp-uglify": "^1.5.1",
+    "gulp-webpack": "^1.5.0",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
+    "run-sequence": "^1.1.5",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.6"
+  }
+}
