@@ -1,0 +1,22 @@
+{
+  "name": "webCollection",
+  "version": "0.0.1",
+  "description": "Front-end development Collection",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server -o -p 8008"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://clearives@github.com/Clearives/webCollection.git"
+  },
+  "keywords": [
+    "f2e"
+  ],
+  "author": "Clearives",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Clearives/webCollection/issues"
+  },
+  "homepage": "https://github.com/Clearives/webCollection#readme"
+}
