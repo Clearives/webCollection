@@ -56,3 +56,10 @@ class App extends Component {
 
 2、合成事件与原生事件混用
 > 正常情况下可以使用合成事件，但是比如我们需要再body上绑定事件时就必须使用原生事件进行绑定。
+
+3、react阻止冒泡事件
+- 阻止合成事件间的冒泡，用e.stopPropagation();
+- 阻止合成事件与最外层document上的事件间的冒泡，用e.nativeEvent.stopImmediatePropagation();
+- 阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免
+
+> 参考：[react阻止冒泡事件](https://zhuanlan.zhihu.com/p/26742034)
