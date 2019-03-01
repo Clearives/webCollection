@@ -69,4 +69,5 @@ class App extends Component {
 - 父 => 子   （props）
 - 子 => 父   （回调函数）
 - 无嵌套关系  （全局发布/订阅模式，eg：EventEmitter）
+- context     (React Context 是嵌套层次较深的兄弟组件之间通信的一种便捷方式)
 > 参考：[React组件之间的通信](https://github.com/sunyongjian/blog/issues/27)
