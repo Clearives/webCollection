@@ -63,3 +63,10 @@ class App extends Component {
 - 阻止合成事件与除最外层document上的原生事件上的冒泡，通过判断e.target来避免
 
 > 参考：[react阻止冒泡事件](https://zhuanlan.zhihu.com/p/26742034)
+
+### 组件间通信
+
+- 父 => 子   （props）
+- 子 => 父   （回调函数）
+- 无嵌套关系  （全局发布/订阅模式，eg：EventEmitter）
+> 参考：[React组件之间的通信](https://github.com/sunyongjian/blog/issues/27)
