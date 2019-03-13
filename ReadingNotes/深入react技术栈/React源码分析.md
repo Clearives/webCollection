@@ -94,6 +94,7 @@ var ReactElement = function(type, key, ref, self, source, owner, props) {
 }
 ```
 2、 ReactDOM.render
+> _renderSubtreeIntoContainer
 
 - 【instantiateReactComponent】实例化组件
     - null时,为空,实例化ReactEmptyComponent;
