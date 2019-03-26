@@ -1,5 +1,4 @@
 # Set-map
-- [Set-map](set-map)
   - [Set](#set)
     - [Set 实例的属性和方法](#set-%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95)
     - [Set遍历](#set%E9%81%8D%E5%8E%86)
