@@ -1,5 +1,5 @@
 
-# 前端资源Collection
+# 前端资源Collection。
 
 [前端资源](http://clearives.cc/webCollection/)
 
